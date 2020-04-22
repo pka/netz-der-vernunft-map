@@ -1,0 +1,39 @@
+# t-rex configuration
+
+[service.mvt]
+viewer = true
+
+[[datasource]]
+path = "../data/ndv.vrt"
+name = "datasource"
+default = true
+
+[grid]
+predefined = "web_mercator"
+
+[[tileset]]
+name = "ndv_points"
+extent = [5.45000, 43.53000, 43807.00000, 54.32000]
+[[tileset.layer]]
+name = "ndv_points"
+table_name = "ndv_points"
+geometry_field = ""
+geometry_type = "POINT"
+srid = 4326
+buffer_size = 0
+#make_valid = true
+query_limit = 1000
+#[[tileset.layer.query]]
+
+[cache.file]
+base = "./mvtcache"
+#baseurl = "http://example.com/tiles"
+
+[webserver]
+# Bind address. Use 0.0.0.0 to listen on all adresses.
+bind = "127.0.0.1"
+port = 6767
+
+[[webserver.static]]
+path = "/ndv"
+dir = "../public"

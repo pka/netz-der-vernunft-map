@@ -1,0 +1,35 @@
+{
+  "name": "ndv_points",
+  "id": "ndv_points",
+  "scheme": "xyz",
+  "format": "pbf",
+  "version": "2.0.0",
+  "attribution": "",
+  "basename": "ndv_points",
+  "description": "ndv_points",
+  "minzoom": 0,
+  "maxzoom": 10,
+  "bounds": [
+    5.45,
+    43.53,
+    20.0,
+    54.32
+  ],
+  "center": [
+    10.3,
+    49.1,
+    5
+  ],
+  "tiles": [
+    "https://pkg.sourcepole.ch/ndv/tiles/{z}/{x}/{y}.pbf"
+  ],
+  "vector_layers": [
+    {
+      "id": "ndv_points",
+      "description": "",
+      "fields": {},
+      "minzoom": 0,
+      "maxzoom": 10
+    }
+  ]
+}

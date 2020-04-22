@@ -1,5 +1,11 @@
 # Netz der Venunft
 
+## Usage
+
+* Update `data/ndv.csv`
+* Create vector tiles: `make tiles`
+* Publish: `make deploy`
+
 ## Basemap providers
 
 * https://www.mapbox.com/pricing/#maploads
