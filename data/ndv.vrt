@@ -5,9 +5,8 @@
         <GeometryType>wkbPoint</GeometryType>
         <LayerSRS>WGS84</LayerSRS>
         <Field name="name" src="Name" />
-        <Field name="description" src="Description" />
+        <Field name="link" src="Link" />
         <Field name="place" src="place" />
-        <Field name="trust" src="trust" />
         <GeometryField encoding="PointFromColumns" x="lon" y="lat"/>
     </OGRVRTLayer>
 </OGRVRTDataSource>

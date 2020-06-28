@@ -21,7 +21,7 @@
     5
   ],
   "tiles": [
-    "https://pkg.sourcepole.ch/ndv/tiles/{z}/{x}/{y}.pbf"
+    "https://map.tolle-tausen.de/tiles/{z}/{x}/{y}.pbf"
   ],
   "vector_layers": [
     {
