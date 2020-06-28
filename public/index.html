@@ -9,6 +9,10 @@
 <style>
     body { margin: 0; padding: 0; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
 </style>
 </head>
 <body>
@@ -155,6 +159,41 @@
             },
             'waterway-label'
         );
+
+        var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        map.on('mouseenter', 'ndv-point', function(e) {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var content = e.features[0].properties.name;
+            if (e.features[0].properties.link) {
+                content += '<br/>' + e.features[0].properties.link;
+            }
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup
+                .setLngLat(coordinates)
+                .setHTML(content)
+                .addTo(map);
+        });
+
+        map.on('mouseleave', 'ndv-point', function() {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
     });
 </script>
 
